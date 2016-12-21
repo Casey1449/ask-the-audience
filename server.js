@@ -46,7 +46,7 @@ io.on('connection', function (socket) {
     if (channel === 'voteCast') {
       votes[socket.id] = message;
       io.sockets.emit('voteCount', countVotes(votes));
-      socket.emit('myVote', `your vote was ${message}`);
+      socket.emit('myVote', `Your vote was: ${message}`);
     }
   });
 

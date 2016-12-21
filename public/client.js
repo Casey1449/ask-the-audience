@@ -1,10 +1,11 @@
 let socket = io();
 
 let connectionCount = document.getElementById('connection-count');
-var statusMessage = document.getElementById('status-message');
-var buttons = document.querySelectorAll('#choices button');
-var clientVote = document.getElementById('client-vote');
-var voteTotals = document.getElementById('vote-totals');
+let statusMessage = document.getElementById('status-message');
+let buttons = document.querySelectorAll('#choices button');
+let clientVote = document.getElementById('client-vote');
+let voteTotals = document.getElementById('vote-totals');
+var ctx = document.getElementById("myChart").getContext("2d");
 
 socket.on('statusMessage', function (message) {
   statusMessage.innerText = message;
@@ -21,6 +22,7 @@ socket.on('myVote', function (message) {
 socket.on('voteCount', function (votes) {
   let item = document.createElement('li');
   for (let choice in votes){
+    data.push(votes[choice])
     item = document.getElementById(`${choice}`)
     item.innerHTML = `${votes[choice]}`
   }
