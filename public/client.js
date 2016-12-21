@@ -5,7 +5,6 @@ let statusMessage = document.getElementById('status-message');
 let buttons = document.querySelectorAll('#choices button');
 let clientVote = document.getElementById('client-vote');
 let voteTotals = document.getElementById('vote-totals');
-var ctx = document.getElementById("myChart").getContext("2d");
 
 socket.on('statusMessage', function (message) {
   statusMessage.innerText = message;
