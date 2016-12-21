@@ -6,13 +6,13 @@ const app = express();
 let votes = {};
 
 function countVotes(votes) {
-  var voteCount = {
+  let voteCount = {
       A: 0,
       B: 0,
       C: 0,
       D: 0
   };
-  for (var vote in votes) {
+  for (let vote in votes) {
     voteCount[votes[vote]]++
   }
   return voteCount;
@@ -40,7 +40,7 @@ io.on('connection', function (socket) {
 
   io.sockets.emit('usersConnected', io.engine.clientsCount);
 
-  socket.emit('statusMessage', 'You have connected.');
+  socket.emit('statusMessage', 'You have connected!');
 
   socket.on('message', function (channel, message) {
     if (channel === 'voteCast') {
