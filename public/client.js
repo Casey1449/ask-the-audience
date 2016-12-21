@@ -21,7 +21,6 @@ socket.on('myVote', function (message) {
 socket.on('voteCount', function (votes) {
   let item = document.createElement('li');
   for (let choice in votes){
-    data.push(votes[choice])
     item = document.getElementById(`${choice}`)
     item.innerHTML = `${votes[choice]}`
   }
